@@ -26,13 +26,15 @@ function App(){
       setMessage("Error in loading data found by catch block ");
     }
   }
-  
-  const filtered=()=>{
+//serach function
+const filtered = async() =>{
+  const ans = await fetch("./data/co.json")
 
-    const ans =covid.search;
-    console.log(ans);
-    setValue(ans);
-  }
+  setValue(ans);
+  console.log(ans)
+}
+
+
 
   
 
@@ -75,7 +77,10 @@ function App(){
         <td>recovered</td>
         <td>{covid.recovered}</td>
       </tr>
-
+  <tr>
+    <td>todayRecovered</td>
+    <td>{covid.todayRecovered}</td>
+  </tr>
 
 
       </tbody>
@@ -83,15 +88,6 @@ function App(){
 </div>
 
 
-
-
-
-
-
-<input type="text" value ={search} onChange={(e)=>setSearch(e.target.value)}/>
-<button onClick={filtered}>Searchhh button</button>
-<p>the value is </p>
-<p>{value}</p>
 
 
 
