@@ -1,2 +1,10 @@
-[{
-    "updated":1791952912662},{"cases":704753890},{"todayCases":0},{"deaths":7010681}]
+[
+    {
+        "name" : "updated",
+        "value" :1791955913267
+    },
+    {
+        "name" : "cases",
+        "value" :704753890
+    }
+]

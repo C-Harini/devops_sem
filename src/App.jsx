@@ -8,8 +8,20 @@ function App(){
   const [search,setSearch] = useState("");
   const [message,setMessage] = useState("");
   const [value,setValue] = useState(0);
-
-
+ const list=[
+    {
+        "name" : "updated",
+        "value" :1791955913267
+    },
+    {
+        "name" : "cases",
+        "value" :704753890
+    },
+    {
+      "name" :"deaths",
+      "value" :7010681
+    }
+]
   const fetchItems = async() =>{
     try{
       const response = await fetch("https://disease.sh/v3/covid-19/all");
@@ -27,11 +39,13 @@ function App(){
     }
   }
 //serach function
-const filtered = async() =>{
-  const ans = await fetch("./data/co.json")
-
-  setValue(ans);
-  console.log(ans)
+const filtered =() =>{
+  const ans = list.filter((c)=>{
+     const y = c.name.includes(search);
+    return y;
+  })
+  setValue(ans[0].value)
+  console.log(ans[0].value)
 }
 
 
@@ -87,9 +101,9 @@ const filtered = async() =>{
     </table>
 </div>
 
-
-
-
+<input type="text" value ={search} onChange = {(e) => setSearch(e.target.value)}/>
+<button onClick = {filtered} >Search</button>
+<p>The value is {value}</p>
 
 
   </div>
